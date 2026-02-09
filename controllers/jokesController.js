@@ -1,4 +1,4 @@
-import { getRandomJoke, filterJokesByType } from "../utils/filterLogic.js";
+import { getRandomJoke, filterJokesByType } from "../utils/jokelogic.js";
 
 function getFilteredRandomJoke(jokes, type) {
     const filteredJokes = filterJokesByType(jokes, type);
