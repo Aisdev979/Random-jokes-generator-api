@@ -17,13 +17,11 @@ fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
         console.error("Error reading jokes file:", err);
         fetchedJokes = [];
-       
     }
 
     fetchedJokes = data;
     // console.log(fetchedJokes); 
-   
-          
+       
 });
 
 function returnAllJokes(){
