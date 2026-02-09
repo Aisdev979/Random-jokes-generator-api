@@ -9,7 +9,7 @@ const _dirName =  path.dirname(_fileName);
 // console.log(_fileName)  C:\Users\HP\Random-jokes-generator-api\models\jokesModels.js
 // console.log(_dirName)    C:\Users\HP\Random-jokes-generator-api\models
 
-const filePath =  path.join(_dirName,'jokes.txt');
+const filePath =  path.join(_dirName,'jokes.json');
 
 let fetchedJokes = [];
 
@@ -18,9 +18,8 @@ fs.readFile(filePath, 'utf8', (err, data) => {
         console.error("Error reading jokes file:", err);
         fetchedJokes = [];
     }
-    fetchedJokes = data;
+    fetchedJokes = JSON.parse(data);
     // console.log(fetchedJokes); 
-       
 });
 
 function returnAllJokes(){
