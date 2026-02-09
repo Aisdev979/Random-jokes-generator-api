@@ -1,54 +1,48 @@
-const jokeText = document.getElementById("jokeText");
-const newQuoteBtn = document.getElementById("new-quote");
-const jokeTypeSelect = document.getElementById("joke-type");
-const quoteBox = document.getElementById("quote-box");
+const newQuoteBtn = document.querySelector(".button");
+const jokeTypeSelect = document.querySelector("#joke-type");
+const quoteBox = document.querySelector("#quote-box");
 
-const jokes = {
-  short: [
-    "Why don’t programmers like nature? Too many bugs.",
-    "Why did the computer sneeze? It caught a virus.",
-    "Why was the JS dev sad? Because he didn’t know how to null his feelings."
-  ],
-  long: [
-    "Why did the developer go broke? Because he used up all his cache and couldn’t recover his assets.",
-    "A programmer orders 1.000000119 beers. The bartender says, 'You think you’re funny?' The programmer says, 'No, I’m testing floating point precision.'"
-  ]
-};
-
+// Available theme colors
 const colors = [
-  '#16a085',
-  '#27ae60',
-  '#2c3e50',
-  '#f39c12',
-  '#e74c3c',
-  '#9b59b6',
-  '#FB6964',
-  '#342224',
-  '#472E32',
-  '#BDBB99',
-  '#77B1A9',
-  '#73A857'
+  "#16a085",
+  "#27ae60",
+  "#2c3e50",
+  "#f39c12",
+  "#e74c3c",
+  "#9b59b6",
+  "#FB6964",
+  "#342224",
+  "#472E32",
+  "#BDBB99",
+  "#77B1A9",
+  "#73A857"
 ];
 
-function getRandomJoke(type) {
-  const list = jokes[type];
-  return list[Math.floor(Math.random() * list.length)];
-}
-
+// Pick a random color from the list
 function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function renderJoke() {
-  const type = jokeTypeSelect.value;
+// Restore the saved theme color after page reload (EJS re-render)
+window.addEventListener("DOMContentLoaded", () => {
+  const savedColor = localStorage.getItem("themeColor");
+  if (!savedColor) return;
+
+  document.body.style.backgroundColor = savedColor;
+  quoteBox.style.color = savedColor;
+  newQuoteBtn.style.backgroundColor = savedColor;
+  jokeTypeSelect.style.backgroundColor = savedColor;
+});
+
+// Update the link URL when joke type changes
+jokeTypeSelect.addEventListener("change", (event) => {
+  const type = event.target.value;
+
+  newQuoteBtn.href = !type ? `/api/joke` : `/api/joke?type=${type}`;
+});
+
+// Change and save the color before navigating to the next joke
+newQuoteBtn.addEventListener("click", () => {
   const color = getRandomColor();
-
-  jokeText.textContent = getRandomJoke(type);
-  document.body.style.backgroundColor = color;
-  quoteBox.style.color = color;
-  newQuoteBtn.style.backgroundColor = color;
-  jokeTypeSelect.style.backgroundColor = color;
-}
-
-newQuoteBtn.addEventListener("click", renderJoke);
-jokeTypeSelect.addEventListener("change", renderJoke);
+  localStorage.setItem("themeColor", color);
+});

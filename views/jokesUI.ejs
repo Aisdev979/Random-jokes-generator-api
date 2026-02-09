@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Joke Generator</title>
+
+  <!-- Main styles for layout, colors, and transitions -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!--
+    Apply the previously saved theme color before the page renders.
+    This prevents color snapping and keeps transitions smooth after reloads.
+  -->
+  <!-- <script>
+    const savedColor = localStorage.getItem("themeColor");
+    if (savedColor) {
+      document.documentElement.style.backgroundColor = savedColor;
+    }
+  </script> -->
+</head>
+
+<body>
+  <!-- Main container for joke content -->
+  <div id="quote-box">
+
+    <!-- Joke text display -->
+    <div id="text">
+      <i>❝</i>
+      <span id="jokeText">Click the button to get a joke 😄</span>
+      <i>❞</i>
+    </div>
+
+    <!-- Controls section -->
+    <div class="buttons">
+
+      <!-- Joke type selector (state preserved via EJS) -->
+      <select name="joke-type" id="joke-type">
+        <option value="" <%= jokeTypeSelected === "" ? "selected" : "" %>>
+          Any Jokes
+        </option>
+        <option value="short" <%= jokeTypeSelected === "short" ? "selected" : "" %>>
+          Short Jokes
+        </option>
+        <option value="long" <%= jokeTypeSelected === "long" ? "selected" : "" %>>
+          Long Jokes
+        </option>
+      </select>
+
+      <!--
+        Navigation link that triggers:
+        1) color change (via JS)
+        2) server-side render of the next joke (EJS)
+      -->
+      <a
+        href="<%= !jokeTypeSelected ? '/api/joke' : `/api/joke?type=${jokeTypeSelected}` %>"
+        class="button"
+      >
+        Generate Joke
+      </a>
+    </div>
+  </div>
+
+  <!-- Client-side logic for color handling and interaction -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
