@@ -1,0 +1,31 @@
+{
+  "name": "random-jokes-generator-api",
+  "version": "1.0.0",
+  "description": "The Random Joke Generator is a simple yet practical project built to demonstrate core backend concepts such as randomisation, array handling, routing, and basic filtering using Express.js.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aisdev979/Random-jokes-generator-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Aisdev979/Random-jokes-generator-api/issues"
+  },
+  "homepage": "https://github.com/Aisdev979/Random-jokes-generator-api#readme",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
