@@ -13,14 +13,13 @@ const filePath =  path.join(_dirName,'jokes.json');
 
 let fetchedJokes = [];
 
-fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-        console.error("Error reading jokes file:", err);
-        fetchedJokes = [];
-    }
+try {
+    const data = fs.readFileSync(filePath, "utf8");
     fetchedJokes = JSON.parse(data);
-    // console.log(fetchedJokes); 
-});
+} catch (error) {
+    console.error("Error loading jokes:", error.message);
+    fetchedJokes = [];
+}
 
 function returnAllJokes(){
     return fetchedJokes;

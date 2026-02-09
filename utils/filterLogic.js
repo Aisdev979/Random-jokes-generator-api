@@ -12,16 +12,4 @@ function getRandomJoke(jokes) {
     return jokes[index];
 }
 
-function getFilteredRandomJoke(jokes,type) {
-    const filteredJokes = filterJokesByType(jokes, type);
-    
-    if (filteredJokes.length === 0) {
-        return null;
-    }
-
-    return getRandomJoke(filteredJokes);
-}
-
-module.exports = {
-    getFilteredRandomJoke
-};
+export { getRandomJoke, filterJokesByType };

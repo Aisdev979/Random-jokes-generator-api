@@ -1,11 +1,10 @@
 import { returnAllJokes } from './models/jokesModels.js';
+import { getFilteredRandomJoke } from './controllers/jokesController.js';
 
-// const jokes = require('./jokes');
-// const { getFilteredRandomJoke } = require('./filterLogic');
-
-// console.log('SHORT JOKE:', getFilteredRandomJoke(jokes, 'short'));
-// console.log('LONG JOKE:', getFilteredRandomJoke(jokes, 'long'));
-// console.log('DEFAULT:', getFilteredRandomJoke(jokes));
-// console.log('INVALID TYPE:', getFilteredRandomJoke(jokes, 'funny'));
+console.log('SHORT JOKE:', getFilteredRandomJoke(returnAllJokes(), 'short'));
+console.log('LONG JOKE:', getFilteredRandomJoke(returnAllJokes(), 'long'));
+console.log('DEFAULT:', getFilteredRandomJoke(returnAllJokes()));
+console.log('INVALID TYPE:', getFilteredRandomJoke(returnAllJokes(), 'funny'));
+console.log('INVALID TYPE:', getFilteredRandomJoke([], 'funny'));
 
 console.log(returnAllJokes());
