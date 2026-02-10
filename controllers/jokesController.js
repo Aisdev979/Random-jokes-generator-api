@@ -26,6 +26,11 @@ function getFilteredRandomJoke(req, res) {
         //   res.send(filteredJokes).status(200);
 
         if (filteredJokes.length === 0) {
+
+             /** ejs render mode */
+        return res.render("jokesUI",{jokeMessage:"No Jokes found for the requested Type", jokeTypeSelected: type});
+
+            /** Api mode 
             return res
                 .status(404)
                 .json({
@@ -33,25 +38,40 @@ function getFilteredRandomJoke(req, res) {
                     message: "No jokes found for the requested Type",
                     data: null,
                 });
+            */
         }
 
         //call the getRandomJoke function
 
         const generatedRandomJoke = getRandomJoke(filteredJokes);
 
+        /** ejs render mode */
+        return res.render("jokesUI",{jokeMessage: generatedRandomJoke.joke, jokeTypeSelected: type});
+
+
+        /** Api mode 
         return res.status(200).json({
             success: true,
             message: "Random Joke Generated Successfully",
             data: generatedRandomJoke,
         });
+        */
 
         //   res.send(generatedRandomJoke).status(200);
     } catch (error) {
+
+         /** ejs render mode */
+         return res.render("jokesUI",{jokeMessage:"Failed to Generate Random Joke" , jokeTypeSelected: type});
+
+        /** Api mode 
         return res.status(404).json({
             success: false,
             message: "Failed to Generate Random Joke",
             data: generatedRandomJoke,
         });
+
+        */
+
     }
 }
 
