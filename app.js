@@ -3,13 +3,13 @@ import express from "express";
 import ejs from "ejs";
 import jokesRouter from "./routes/jokesRoute.js";
 
-// dotenv.config();
+dotenv.config();
 const app = express();
 
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use("/api",jokesRouter);
+app.use("/api", jokesRouter);
 
 
 //old Routes

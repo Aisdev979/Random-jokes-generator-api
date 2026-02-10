@@ -1,4 +1,4 @@
-import {returnAllJokes} from './models/jokesModels.js';
+import { returnAllJokes } from './models/jokesModels.js';
 import { getFilteredRandomJoke } from './controllers/jokesController.js';
 
 console.log('SHORT JOKE:', getFilteredRandomJoke(returnAllJokes(), 'short'));

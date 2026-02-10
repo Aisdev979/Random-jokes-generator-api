@@ -1,10 +1,6 @@
 import { getRandomJoke, filterJokesByType } from "../utils/jokelogic.js";
 import { returnAllJokes } from "../models/jokesModels.js";
 
-const jokes =  returnAllJokes();
-let generatedRandomJoke;
-
-
 // function getFilteredRandomJoke(jokes,type) {
 //     const filteredJokes = filterJokesByType(jokes, type);
 
@@ -15,39 +11,48 @@ let generatedRandomJoke;
 //     return getRandomJoke(filteredJokes);
 // }
 
-function getFilteredRandomJoke(req,res) {
-
+function getFilteredRandomJoke(req, res) {
     //   console.log(req)
     // res.send(returnAllJokes()).status(200); logs all jsondata with success response 200
-    // res.send(jokes).status(200); 
+    // res.send(jokes).status(200);
     // console.log(jokes);
 
-    try{
+    const jokes = returnAllJokes();
 
-        const { type } = req.query;
-        const filteredJokes = filterJokesByType(jokes,type)
+    try {
+        const { type } = req.query || "";
+        const filteredJokes = filterJokesByType(jokes, type);
         //  console.log(filteredJokes);
-        //   res.send(filteredJokes).status(200); 
+        //   res.send(filteredJokes).status(200);
 
-        if(filteredJokes.length === 0){
-
-        return res.json({responseCode:"05",message:"No jokes found for the requested Type",data:null}).status(404);
+        if (filteredJokes.length === 0) {
+            return res
+                .status(404)
+                .json({
+                    success: false,
+                    message: "No jokes found for the requested Type",
+                    data: null,
+                });
         }
 
         //call the getRandomJoke function
 
-        generatedRandomJoke = getRandomJoke(filteredJokes);
+        const generatedRandomJoke = getRandomJoke(filteredJokes);
 
-        return res.json({responseCode:"00",message:"Random Joke Generated Successfully",data:generatedRandomJoke}).status(200);
-        
-        //   res.send(generatedRandomJoke).status(200); 
-    }catch(error){
+        return res.status(200).json({
+            success: true,
+            message: "Random Joke Generated Successfully",
+            data: generatedRandomJoke,
+        });
 
-           return res.json({responseCode:"08",message:"Failed to Generate Random Joke",data:generatedRandomJoke}).status(400);
+        //   res.send(generatedRandomJoke).status(200);
+    } catch (error) {
+        return res.status(404).json({
+            success: false,
+            message: "Failed to Generate Random Joke",
+            data: generatedRandomJoke,
+        });
     }
-
-
 }
-
 
 export { getFilteredRandomJoke };
