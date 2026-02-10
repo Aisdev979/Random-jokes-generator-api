@@ -1,8 +1,12 @@
 /**
+ * 
+ * 
  * Selects a random joke from the provided array.
  * @param {Array} jokesArray - The array of joke objects.
  * @returns {Object} - A single random joke object.
  */
+
+// console.log(jokesArray);
 
 const VALID_TYPES = ['short', 'long'];
 
