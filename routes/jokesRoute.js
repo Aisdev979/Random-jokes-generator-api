@@ -3,7 +3,7 @@ import { getFilteredRandomJoke } from "../controllers/jokesController.js";
 
 const jokesRouter = express.Router();
 
-jokesRouter.get("/joke",getFilteredRandomJoke);
+jokesRouter.get("/randomjoke",getFilteredRandomJoke);
 
 
 export default jokesRouter;
