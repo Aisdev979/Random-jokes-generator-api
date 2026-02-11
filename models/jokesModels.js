@@ -17,7 +17,7 @@ try {
     const data = fs.readFileSync(filePath, "utf8");
     fetchedJokes = JSON.parse(data);
 } catch (error) {
-    console.error("Error loading jokes:", error.message);
+    // console.error("Error loading jokes:", error.message);
     fetchedJokes = [];
 }
 

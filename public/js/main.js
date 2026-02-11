@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
 jokeTypeSelect.addEventListener("change", (event) => {
   const type = event.target.value;
 
-  newQuoteBtn.href = !type ? `/api/joke` : `/api/joke?type=${type}`;
+  newQuoteBtn.href = !type ? `/api/randomjoke` : `/api/randomjoke?type=${type}`;
 });
 
 // Change and save the color before navigating to the next joke
