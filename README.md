@@ -22,7 +22,7 @@ A lightweight, beginner-friendly Node.js + Express API that serves random jokes 
 
 ## 4. Application Flow
 - Server starts on port 3000 (or 5000 if 3000 is unavailable, or as defined in `.env`).
-- User visits the root URL (`http://localhost:3000/` or `:5000/`) → Express renders the EJS view (`jokesUi.ejs`) with an initial random joke fetched server-side.
+- User visits the root URL (`localhost:3000/api/randomjoke or ...:5000/ api/ randomjokes`) → Express renders the EJS view (`jokesVies.ejs`) with an initial random joke fetched server-side.
 - The page loads with the joke already displayed (no initial client-side request needed).
 - User can optionally select a filter (short/long) via UI controls.
 - User clicks "Generate Joke" → frontend (`main.js`) sends a GET request to `/api/randomjoke` (with optional `?type=short` or `?type=long`).
