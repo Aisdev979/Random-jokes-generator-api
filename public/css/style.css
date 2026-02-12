@@ -1,41 +1,56 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
 
+/* Reset default browser styles */
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   vertical-align: baseline;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensures padding/border don’t affect width calculations */
 }
 
+/* Ensure positioned elements stack correctly */
 div {
   position: relative;
   z-index: 2;
 }
 
+/* Main page styling */
 body {
   background-color: #567;
   color: #333;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
+
+  /* Center content vertically and horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  /* Smooth background transition when theme colour changes */
   transition: background-color 0.5s ease;
 }
 
+/* Quote container */
 #quote-box {
   border-radius: 9px;
   position: relative;
   width: 450px;
   padding: 40px 50px;
+
   display: table;
   background-color: #fff;
+
+  /* Subtle shadow for card effect */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  /* Smooth theme transitions */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* Joke text styling */
 #text {
   text-align: center;
   width: 100%;
@@ -43,61 +58,72 @@ body {
   font-size: 1.75em;
 }
 
+/* Quote icon styling */
 #text i {
   font-size: 1em;
   margin-right: 0.4em;
 }
 
-
-
+/* Button container */
 .buttons {
   width: 100%;
   margin: auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin-top: 30px;
 }
 
+/* Primary button styling */
 .button {
   height: 38px;
   border: none;
   border-radius: 9px;
+
   color: #fff;
   background-color: #333;
+
   outline: none;
   font-size: 0.85em;
   padding: 8px 18px;
-  opacity: 1;
+
   cursor: pointer;
-  transition: background-color 0.4s ease, opacity 0.2s ease;
   text-decoration: none;
+
+  /* Smooth hover effects */
+  transition: background-color 0.4s ease, opacity 0.2s ease;
 }
 
+/* Slight fade effect on hover */
 .button:hover {
   opacity: 0.9;
 }
 
-/* Dropdown replacing Twitter icon */
+/* Dropdown for selecting joke type */
 #joke-type {
   height: 38px;
   border-radius: 9px;
   border: none;
+
   padding: 0 10px;
   font-size: 0.8em;
+
   background-color: #333;
   color: white;
+
   cursor: pointer;
 }
 
-/* Mobile */
+/* Responsive design for smaller screens */
 @media only screen and (max-width: 600px) {
   #quote-box {
-    width: 90%;
+    width: 90%; /* Make card fluid on small screens */
     padding: 30px 25px;
   }
 
   #text {
-    font-size: 1.3em;
+    font-size: 1.3em; /* Reduce text size for readability */
   }
 }
