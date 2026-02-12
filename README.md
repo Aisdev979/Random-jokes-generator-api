@@ -57,14 +57,7 @@ Example JSON responses:
       "type":"short"
 }
 
-## 6. View Layer
-- Templating Engine: EJS (Embedded JavaScript) for server-side rendering.
-- Main view: views/jokesUI.ejs – receives joke data from the server on initial load and renders it directly.
-- Client-side updates: Vanilla JavaScript in public/js/main.js.
-- Key elements: joke display area (conditionally renders short or long joke format), "Generate Joke" button, or the drop down button selection (Any joke, Short joke and Long joke).
-- Responsive design with CSS Flexbox and media queries.(./public/css/style.css)
-
-## 7. Project Architecture
+## 6. Project Architecture
 Random-jokes-generator-api/
 ├── controllers/           # Business logic layer
 │   └── jokesController.js # Handles joke selection, randomization, filtering
@@ -83,25 +76,27 @@ Random-jokes-generator-api/
 ├── server.js              # Server bootstrap (starts the app, loads env)
 └── ...                    # Config files (.gitignore, package.json, etc.)
 
-## 8. Team Roles and Resposibility
+## 7. Team Roles and Resposibility
 This is a collaborative Group 3 mini-project. Below are the team members and their primary contributions:
 - Ayomide Winner Ojo-sola (@sola_ayomide) – Writing and maintaining the README and API documentation.
 - Sarah Motunrayo Osiyemi (@Sarahtuns16) – Gathering jokes data and structuring it into data models; implementing controller logic.
 - Edgal James Iruoghene – Implementing the random joke selection logic, including the function to randomly pick jokes from the dataset and adding error handling to prevent crashes if data is empty.
 - Leniency Yowika (@Lyowika7) – UI design and frontend development (layout, styling, and population of the interface).
 - Ogbebor Aisosa Matthew – Setting up the Node.js + Express server; structuring the project using MVC architecture; integrating EJS templating; updating frontend JavaScript logic to use localStorage for persisting UI color/theme changes; splitting tasks among team members; reviewing, approving, and merging pull requests; resolving merge conflicts.
+- Ebubechukwu Jeff Osaji(Her_Light) responsible for correcting errors in the README and API Documentation.
+- Blessing Iyobosa Isibor (iyobosa-bi) Transformed the jokes.js into jokes.json and read the file into the jokesModel.js Implemented the api/random jokes route and connected it to the controller. Returned a render response to the jokesView.ejs from the controller. Git Collaboration (Push and pull requests)
 
-## 9. validation and Error Handling
+## 8. validation and Error Handling
 - Query parameters validated using schema in validations/validationSchema.js.
 - Invalid inputs ignored or return friendly errors.
 - Filtering fallback ensures a joke is always returned when possible.
 - Controller handles edge cases (empty array, no matches).
 
-## 10.  Testing Approach
+## 9.  Testing Approach
 - Manual testing of routes, UI, filtering, randomization.
 - Test validation behavior with invalid queries.
 
-## 11. Getting Started
+## 10. Getting Started
 Prerequisites
 - Node.js
 - npm
@@ -129,27 +124,29 @@ The server runs on port 3000 by default. If port 3000 is unavailable, it will fa
 Open http://localhost:3000 (or :5000) to view the web UI.
 API endpoint: http://localhost:3000/api/randomjoke (or :5000).
 
-## 12.Learning Outcomes
+## 11.Learning Outcomes
 - Implemented clean separation of concerns in a Node.js/Express app.
 - Mastered modular MVC architecture and team collaboration workflows.
 - Built hybrid server/client rendering with EJS, fetch, and localStorage.
 - Learned query validation, robust error handling, and Git-based collaboration (PR reviews, merges, conflict resolution).
 - Gained experience organizing a mini group project.
 
-## 13. Future Improvements
+## 12. Future Improvements
 - Add more filters/categories and expand jokes array.
 - Implement user-submitted jokes (with validation).
 - Add authentication and favorite jokes persistence.
 
-## 14. Documentation
+## 13. Documentation
 - Primary: This README
 - API examples in section 5
 
-## 15. Contributors
+## 14. Contributors
 Aisdev979 (Ogbebor Aisosa Matthew): Project lead and repository maintainer
 Ayomide Winner Ojo-sola (@sola_ayomide)
 Sarah Motunrayo Osiyemi (@Sarahtuns16)
 Edgal James Iruoghene
 Leniency Yowika (@Lyowika7)
+Ebubechukwu Jeff Osaji(@Her-Light)
+Iyobosa Isibor (@iyobosa-bi)
 
 Thank you to the entire Group 3 team for the collaboration!
