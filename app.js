@@ -9,7 +9,12 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+//app.use("/api", jokesRouter);
+app.use(express.json());
+
 app.use("/api", jokesRouter);
+
+
 
 
 //old Routes

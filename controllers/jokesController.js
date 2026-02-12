@@ -1,7 +1,14 @@
 import { getRandomJoke, filterJokesByType } from "../utils/jokelogic.js";
 import { returnAllJokes } from "../models/jokesModels.js";
+import {
+  validateJokeObject,
+  isTypeConsistent,
+  sanitizeText
+} from "../validations/validationSchema.js";
 
-// function getFilteredRandomJoke(jokes,type) {
+/**
+ */
+// function getFilteredRandomJoke(jokes, type) {
 //     const filteredJokes = filterJokesByType(jokes, type);
 
 //     if (filteredJokes.length === 0) {
@@ -10,27 +17,31 @@ import { returnAllJokes } from "../models/jokesModels.js";
 
 //     return getRandomJoke(filteredJokes);
 // }
-function getFilteredRandomJoke(req, res) {
-  //   console.log(req)
-  // res.send(returnAllJokes()).status(200); logs all jsondata with success response 200
-  // res.send(jokes).status(200);
-  // console.log(jokes);
 
+/**
+ */
+// function getFilteredRandomJoke(req, res) {
+//   //   console.log(req)
+//   // res.send(returnAllJokes()).status(200); logs all jsondata with success response 200
+//   // res.send(jokes).status(200);
+//   // console.log(jokes);
+
+function getFilteredRandomJoke(req, res) {
   try {
     const jokes = returnAllJokes();
-    const { type } = req.query || "";
+
+  
+    const type = req.query?.type || "";
     const filteredJokes = filterJokesByType(jokes, type);
-    //  console.log(filteredJokes);
-    //   res.send(filteredJokes).status(200);
 
     if (filteredJokes.length === 0) {
-      /** ejs render mode */
+      /** ejs */
       return res.render("jokesUI", {
         jokeMessage: "No Jokes found for the requested Type",
         jokeTypeSelected: type,
       });
 
-      /** Api mode 
+      /** Api mode
             return res
                 .status(404)
                 .json({
@@ -41,17 +52,33 @@ function getFilteredRandomJoke(req, res) {
             */
     }
 
-    //call the getRandomJoke function
-
+    // calling  the getRandomJoke function
     const generatedRandomJoke = getRandomJoke(filteredJokes);
 
-    /** ejs render mode */
+
+    if (!validateJokeObject(generatedRandomJoke)) {
+      return res.render("jokesUI", {
+        jokeMessage: "Invalid joke data detected.",
+        jokeTypeSelected: type,
+      });
+    }
+
+    if (!isTypeConsistent(generatedRandomJoke)) {
+      return res.render("jokesUI", {
+        jokeMessage: "Joke type does not match word count.",
+        jokeTypeSelected: type,
+      });
+    }
+
+    const safeJokeText = sanitizeText(generatedRandomJoke.joke);
+
+    
     return res.render("jokesUI", {
-      jokeMessage: generatedRandomJoke.joke,
+      jokeMessage: safeJokeText,
       jokeTypeSelected: type,
     });
 
-    /** Api mode 
+    /** Api mode
         return res.status(200).json({
             success: true,
             message: "Random Joke Generated Successfully",
@@ -59,21 +86,19 @@ function getFilteredRandomJoke(req, res) {
         });
         */
 
-    //   res.send(generatedRandomJoke).status(200);
+    // res.send(generatedRandomJoke).status(200);
   } catch (error) {
-    /** ejs render mode */
     return res.render("jokesUI", {
       jokeMessage: "Failed to Generate Random Joke",
-      jokeTypeSelected: type,
+      jokeTypeSelected: req.query?.type || "",
     });
 
-    /** Api mode 
+    /** Api mode
         return res.status(404).json({
             success: false,
             message: "Failed to Generate Random Joke",
             data: generatedRandomJoke,
         });
-
         */
   }
 }
