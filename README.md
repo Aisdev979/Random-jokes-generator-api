@@ -65,7 +65,14 @@ Project Architecture responses:
 "genre":"tech"
 }
 
-## 6. Project Architecture
+## 6. View Layer
+- Templating Engine: EJS (Embedded JavaScript) for server-side rendering.
+- Main view: views/jokesUI.ejs – receives joke data from the server on initial load and renders it directly.
+- Client-side updates: Vanilla JavaScript in public/js/main.js.
+- Key elements: joke display area (conditionally renders short or long joke format), "Generate Joke" button, or the drop down button selection (Any joke, Short joke and Long joke).
+- Responsive design with CSS Flexbox and media queries.(./public/css/style.css)
+
+## 7. Project Architecture
 Random-jokes-generator-api/
 ├── controllers/           # Business logic layer
 │   └── jokesController.js # Handles joke selection, randomization, filtering
@@ -84,7 +91,7 @@ Random-jokes-generator-api/
 ├── server.js              # Server bootstrap (starts the app, loads env)
 └── ...                    # Config files (.gitignore, package.json, etc.)
 
-## 7. Team Roles and Resposibility
+## 8. Team Roles and Resposibility
 This is a collaborative Group 3 mini-project. Below are the team members and their primary contributions:
 - Ayomide Winner Ojo-sola (@sola_ayomide) – Writing and maintaining the README and API documentation.
 - Sarah Motunrayo Osiyemi (@Sarahtuns16) – Gathering jokes data and structuring it into data models; implementing controller logic.
@@ -94,17 +101,17 @@ This is a collaborative Group 3 mini-project. Below are the team members and the
 - Ebubechukwu Jeff Osaji(Her_Light) responsible for correcting errors in the README and API Documentation.
 - Blessing Iyobosa Isibor (iyobosa-bi) Transformed the jokes.js into jokes.json and read the file into the jokesModel.js Implemented the api/random jokes route and connected it to the controller. Returned a render response to the jokesView.ejs from the controller. Git Collaboration (Push and pull requests)
 
-## 8. validation and Error Handling
+## 9. validation and Error Handling
 - Query parameters validated using schema in validations/validationSchema.js.
 - Invalid inputs ignored or return friendly errors.
 - Filtering fallback ensures a joke is always returned when possible.
 - Controller handles edge cases (empty array, no matches).
 
-## 9.  Testing Approach
+## 10.  Testing Approach
 - Manual testing of routes, UI, filtering, randomization.
 - Test validation behavior with invalid queries.
 
-## 10. Getting Started
+## 11. Getting Started
 Prerequisites
 - Node.js
 - npm
@@ -132,23 +139,23 @@ The server runs on port 3000 by default. If port 3000 is unavailable, it will fa
 Open http://localhost:3000 (or :5000) to view the web UI.
 API endpoint: http://localhost:3000/api/randomjoke (or :5000).
 
-## 11.Learning Outcomes
+## 12.Learning Outcomes
 - Implemented clean separation of concerns in a Node.js/Express app.
 - Mastered modular MVC architecture and team collaboration workflows.
 - Built hybrid server/client rendering with EJS, fetch, and localStorage.
 - Learned query validation, robust error handling, and Git-based collaboration (PR reviews, merges, conflict resolution).
 - Gained experience organizing a mini group project.
 
-## 12. Future Improvements
+## 13. Future Improvements
 - Add more filters/categories and expand jokes array.
 - Implement user-submitted jokes (with validation).
 - Add authentication and favorite jokes persistence.
 
-## 13. Documentation
+## 14. Documentation
 - Primary: This README
 - API examples in section 5
 
-## 14. Contributors
+## 15. Contributors
 Aisdev979 (Ogbebor Aisosa Matthew): Project lead and repository maintainer
 Ayomide Winner Ojo-sola (@sola_ayomide)
 Sarah Motunrayo Osiyemi (@Sarahtuns16)
