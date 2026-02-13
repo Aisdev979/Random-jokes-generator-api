@@ -56,14 +56,7 @@ Example JSON responses:
       "type":"short"
       "genre": "tech"
 }
-
-Project Architecture responses:
-{
-"id":1,
-"joke": "Project Architecture: Random-jokes-generator-api/ controllers/ jokesController.js models/ jokesModels.js routes/ jokesRoute.js validations/ validationSchema.js views/ jokesli.ejs public/ css/style.css js/main.js app.js server.js",
-"type":"short"
-"genre":"tech"
-}
+```
 
 ## 6. View Layer
 - Templating Engine: EJS (Embedded JavaScript) for server-side rendering.
@@ -73,6 +66,7 @@ Project Architecture responses:
 - Responsive design with CSS Flexbox and media queries.(./public/css/style.css)
 
 ## 7. Project Architecture
+```bash
 Random-jokes-generator-api/
 ├── controllers/           # Business logic layer
 │   └── jokesController.js # Handles joke selection, randomization, filtering
@@ -90,6 +84,7 @@ Random-jokes-generator-api/
 ├── app.js                 # Express app setup (middleware, view engine, routes)
 ├── server.js              # Server bootstrap (starts the app, loads env)
 └── ...                    # Config files (.gitignore, package.json, etc.)
+```
 
 ## 8. Team Roles and Resposibility
 This is a collaborative Group 3 mini-project. Below are the team members and their primary contributions:
