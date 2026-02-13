@@ -8,7 +8,7 @@ import { getFilteredRandomJoke } from "../controllers/jokesController.js";
 
 const jokesRouter = express.Router();
 
-jokesRouter.get("/joke", validateJokeType, getFilteredRandomJoke);
+jokesRouter.get("/randomjoke", validateJokeType, getFilteredRandomJoke);
 
 export default jokesRouter;
 

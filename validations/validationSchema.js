@@ -2,14 +2,14 @@
 const ALLOWED_TYPES = ["short", "long"];
 function validateJokeType(req, res, next) {
     //console.log("validateJokeType HIT:", req.method, req.originalUrl, "type=", req.query.type);
-  const type = req.query.type;
+  const type = req.query.type || "";
 
   if (!type) {
     return next();
   }
   const cleanType = String(type).toLowerCase().trim();
   if (!ALLOWED_TYPES.includes(cleanType)) {
-    return res.status(400).render("jokesUI", {
+    return res.status(400).render("jokesViews", {
       jokeMessage: "Invalid type. Use ?type=short or ?type=long",
       jokeTypeSelected: "",
     });
@@ -54,10 +54,10 @@ function validateJokeObject(jokeObj) {
 }
 function isTypeConsistent(jokeObj) {
   const wordCount = countWords(jokeObj.joke);
-  if (wordCount < 50 && jokeObj.type !== "short") {
+  if (wordCount <= 15 && jokeObj.type !== "short") {
     return false;
   }
-  if (wordCount >= 50 && jokeObj.type !== "long") {
+  if (wordCount > 16 && jokeObj.type !== "long") {
     return false;
   }
   return true;
@@ -67,6 +67,5 @@ export {
   sanitizeText,
   countWords,
   validateJokeObject,
-isTypeConsistent
-
+  isTypeConsistent
 };

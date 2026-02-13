@@ -1,3 +1,4 @@
+// Import business logic functions
 import { getRandomJoke, filterJokesByType } from "../utils/jokelogic.js";
 import { returnAllJokes } from "../models/jokesModels.js";
 import {
@@ -7,49 +8,28 @@ import {
 } from "../validations/validationSchema.js";
 
 /**
+ * Controller function:
+ * Handles request, filters jokes by type (if provided),
+ * selects a random joke, and renders the EJS view.
  */
-// function getFilteredRandomJoke(jokes, type) {
-//     const filteredJokes = filterJokesByType(jokes, type);
-
-//     if (filteredJokes.length === 0) {
-//         return "No jokes found for the requested type.";
-//     }
-
-//     return getRandomJoke(filteredJokes);
-// }
-
-/**
- */
-// function getFilteredRandomJoke(req, res) {
-//   //   console.log(req)
-//   // res.send(returnAllJokes()).status(200); logs all jsondata with success response 200
-//   // res.send(jokes).status(200);
-//   // console.log(jokes);
 
 function getFilteredRandomJoke(req, res) {
   try {
-    const jokes = returnAllJokes();
+    // Retrieve all jokes from the model
+    const jokes = returnAllJokes()
 
-  
-    const type = req.query?.type || "";
+    // Extract 'type' from query string (e.g., ?type=short)
+    const { type } = req.query || "";
+
+    // Filter jokes based on selected type
     const filteredJokes = filterJokesByType(jokes, type);
 
+    // If no jokes match the requested type
     if (filteredJokes.length === 0) {
-      /** ejs */
-      return res.render("jokesUI", {
+      return res.render("jokesViews", {
         jokeMessage: "No Jokes found for the requested Type",
         jokeTypeSelected: type,
       });
-
-      /** Api mode
-            return res
-                .status(404)
-                .json({
-                    success: false,
-                    message: "No jokes found for the requested Type",
-                    data: null,
-                });
-            */
     }
 
     // calling  the getRandomJoke function
@@ -57,14 +37,14 @@ function getFilteredRandomJoke(req, res) {
 
 
     if (!validateJokeObject(generatedRandomJoke)) {
-      return res.render("jokesUI", {
+      return res.render("jokesViews", {
         jokeMessage: "Invalid joke data detected.",
         jokeTypeSelected: type,
       });
     }
 
     if (!isTypeConsistent(generatedRandomJoke)) {
-      return res.render("jokesUI", {
+      return res.render("jokesViews", {
         jokeMessage: "Joke type does not match word count.",
         jokeTypeSelected: type,
       });
@@ -73,33 +53,16 @@ function getFilteredRandomJoke(req, res) {
     const safeJokeText = sanitizeText(generatedRandomJoke.joke);
 
     
-    return res.render("jokesUI", {
+    return res.render("jokesViews", {
       jokeMessage: safeJokeText,
       jokeTypeSelected: type,
     });
-
-    /** Api mode
-        return res.status(200).json({
-            success: true,
-            message: "Random Joke Generated Successfully",
-            data: generatedRandomJoke,
-        });
-        */
-
-    // res.send(generatedRandomJoke).status(200);
   } catch (error) {
-    return res.render("jokesUI", {
+    // Handle unexpected errors gracefully
+    return res.render("jokesViews", {
       jokeMessage: "Failed to Generate Random Joke",
       jokeTypeSelected: req.query?.type || "",
     });
-
-    /** Api mode
-        return res.status(404).json({
-            success: false,
-            message: "Failed to Generate Random Joke",
-            data: generatedRandomJoke,
-        });
-        */
   }
 }
 

@@ -12,12 +12,12 @@
     Apply the previously saved theme color before the page renders.
     This prevents color snapping and keeps transitions smooth after reloads.
   -->
-  <!-- <script>
+  <script>
     const savedColor = localStorage.getItem("themeColor");
     if (savedColor) {
       document.documentElement.style.backgroundColor = savedColor;
     }
-  </script> -->
+  </script>
 </head>
 
 <body>
@@ -27,12 +27,7 @@
     <!-- Joke text display -->
     <div id="text">
       <i>❝</i>
-
-    <span id="jokeText">Click the button to get a joke 😄</span>
-      <i>❞</i>
-      <!-- <br>
-      <br>
-       <p id="jokeMessage"><%= jokeMessage %></p> -->
+      <span id="jokeText"> <%= jokeMessage %></p> </span><i>❞</i>
     </div>
     <!-- Controls section -->
     <div class="buttons">
@@ -56,7 +51,7 @@
         2) server-side render of the next joke (EJS)
       -->
       <a
-        href="<%= !jokeTypeSelected ? '/api/joke' : `/api/joke?type=${jokeTypeSelected}` %>"
+        href="<%= !jokeTypeSelected ? '/api/randomjoke' : `/api/randomjoke?type=${jokeTypeSelected}` %>"
         class="button"
       >
         Generate Joke
