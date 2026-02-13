@@ -8,7 +8,7 @@
   {
     "id": 1,
     "joke": "NEPA took light during my presentation. I called it a dramatic pause for suspense 💡🇳🇬",
-    "type": "long",
+    "type": "short",
     "genre": "nigerian"
   },
   {
@@ -32,7 +32,7 @@
   {
     "id": 5,
     "joke": "I told my barber small trim. He deployed a full system update 💈😂",
-    "type": "long",
+    "type": "short",
     "genre": "life"
   },
   {
@@ -56,7 +56,7 @@
   {
     "id": 9,
     "joke": "Group project: one works, one supervises, one motivates, one disappears 😅📚",
-    "type": "long",
+    "type": "short",
     "genre": "school"
   },
   {
@@ -68,7 +68,7 @@
   {
     "id": 11,
     "joke": "I said I’ll sleep early. Netflix said let’s talk about that 😭📺",
-    "type": "long",
+    "type": "short",
     "genre": "life"
   },
   {
@@ -104,7 +104,7 @@
   {
     "id": 17,
     "joke": "I opened 40 Chrome tabs. My laptop started praying 😭💻",
-    "type": "long",
+    "type": "short",
     "genre": "tech"
   },
   {
@@ -122,7 +122,7 @@
   {
     "id": 20,
     "joke": "My crush said she likes responsible men. I updated my CV immediately 😭",
-    "type": "long",
+    "type": "short",
     "genre": "relationship"
   },
   {
@@ -134,7 +134,7 @@
   {
     "id": 22,
     "joke": "Teacher said bring your parent. I brought my uncle’s confidence instead 😭",
-    "type": "long",
+    "type": "short",
     "genre": "school"
   },
   {
@@ -152,7 +152,7 @@
   {
     "id": 25,
     "joke": "I ironed my shirt and still looked like beta version 😭👕",
-    "type": "long",
+    "type": "short",
     "genre": "life"
   },
   {
@@ -182,7 +182,7 @@
   {
     "id": 30,
     "joke": "My mum said bring change. I brought character development 😭",
-    "type": "long",
+    "type": "short",
     "genre": "family"
   },
   {
@@ -218,7 +218,7 @@
   {
     "id": 36,
     "joke": "My phone updated overnight without consent 📱😭",
-    "type": "long",
+    "type": "short",
     "genre": "tech"
   },
   {
@@ -248,7 +248,7 @@
   {
     "id": 41,
     "joke": "My dad said fix the house wiring since I’m full stack 🔌😂",
-    "type": "long",
+    "type": "short",
     "genre": "family"
   },
   {
@@ -278,7 +278,7 @@
   {
     "id": 46,
     "joke": "Nigerian traffic teaches patience and forgiveness 🚗🇳🇬",
-    "type": "long",
+    "type": "short",
     "genre": "nigerian"
   },
   {
@@ -290,7 +290,7 @@
   {
     "id": 48,
     "joke": "Teacher said think outside box. Question came without box 📦😭",
-    "type": "long",
+    "type": "short",
     "genre": "school"
   },
   {
@@ -302,7 +302,7 @@
   {
     "id": 50,
     "joke": "My crush replied after 3 days. I aged 5 years 😭",
-    "type": "long",
+    "type": "short",
     "genre": "relationship"
   },
   {
@@ -332,7 +332,7 @@
   {
     "id": 55,
     "joke": "My laptop fan sounds like generator startup 🇳🇬💻",
-    "type": "long",
+    "type": "short",
     "genre": "tech"
   },
   {
@@ -344,13 +344,13 @@
   {
     "id": 57,
     "joke": "I checked my weight. Scale said try again later 😭",
-    "type": "long",
+    "type": "short",
     "genre": "life"
   },
   {
     "id": 58,
     "joke": "Why is coding like relationship? One missing character ruins everything 😅",
-    "type": "long",
+    "type": "short",
     "genre": "tech"
   },
   {
@@ -358,5 +358,65 @@
     "joke": "My mum said rest small. Hustle said no 😭",
     "type": "short",
     "genre": "life"
+  },
+  {
+    "id": 60,
+    "joke": "I tried to save money this month but my responsibilities formed a WhatsApp group and cleared my account immediately 😭",
+    "type": "long",
+    "genre": "life"
+  },
+  {
+    "id": 61,
+    "joke": "My laptop froze during demo so I told everyone it was a feature called dramatic suspense mode for premium users 😅",
+    "type": "long",
+    "genre": "tech"
+  },
+  {
+    "id": 62,
+    "joke": "Nigerian mums don’t knock before entering your room because in their house privacy is just a suggestion 😂",
+    "type": "long",
+    "genre": "family"
+  },
+  {
+    "id": 63,
+    "joke": "I started gym with motivation but my body sent a formal complaint the next morning and requested immediate resignation 😭",
+    "type": "long",
+    "genre": "life"
+  },
+  {
+    "id": 64,
+    "joke": "My crush said she needs space so I gave her free cloud storage and emotional bandwidth support 😅",
+    "type": "long",
+    "genre": "relationship"
+  },
+  {
+    "id": 65,
+    "joke": "Our group project had five members but only two humans because the rest became motivational speakers near deadline 😭",
+    "type": "long",
+    "genre": "school"
+  },
+  {
+    "id": 66,
+    "joke": "NEPA restored light at 2am just to prove they are alive and monitoring our happiness closely 💡",
+    "type": "long",
+    "genre": "nigerian"
+  },
+  {
+    "id": 67,
+    "joke": "I debugged my code for six hours only to discover the problem was confidence and one missing semicolon 😭",
+    "type": "long",
+    "genre": "tech"
+  },
+  {
+    "id": 68,
+    "joke": "My bank app sends notifications like celebration but it is just reminding me of subscriptions attacking my salary quietly 💀",
+    "type": "long",
+    "genre": "life"
+  },
+  {
+    "id": 69,
+    "joke": "Teacher said exams are simple if you read instructions but the instructions were written like ancient prophecy 😭",
+    "type": "long",
+    "genre": "school"
   }
 ]
