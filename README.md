@@ -22,7 +22,7 @@ A lightweight, beginner-friendly Node.js + Express API that serves random jokes 
 
 ## 4. Application Flow
 - Server starts on port 3000 (or 5000 if 3000 is unavailable, or as defined in `.env`).
-- User visits the root URL (`localhost:3000/api/randomjoke or ...:5000/ api/ randomjokes`) → Express renders the EJS view (`jokesView.ejs`) with an initial random joke fetched server-side.
+- User visits the root URL (`localhost:3000/api/randomjoke or ...:5000/api/randomjokes`) → Express renders the EJS view (`jokesViews.ejs`) with an initial random joke fetched server-side.
 - The page loads with the joke already displayed no initial client-side request needed.
 - User can optionally select a filter (short/long) via UI controls.
 - User clicks "Generate Joke" → frontend (`main.js`) sends a GET request to `/api/randomjoke` (with optional `?type=short` or `?type=long`).
@@ -36,7 +36,7 @@ The application exposes a dedicated RESTful JSON API endpoint.
 - Method: GET
 - Endpoint:`/api/randomjoke`
 - Description:
- - `/api/randomjoke`: Returns a random joke as JSON            |
+ - `/api/randomjoke`: Returns a random joke as JSON.
 
 Base URL examples (server runs on port 3000 by default; falls back to 5000 if unavailable):
 - `http://localhost:3000/api/randomjoke`
@@ -48,19 +48,19 @@ Example requests (using port 5000 for illustration):
 - Long only: `http://localhost:5000/api/randomjoke?type=long`
 
 Example JSON responses:
-- Short (< 30 words):
+- Short (<= 15 words):
  ```json
 {
    "id":1,
-      "joke":"Why do Nigerian devs love Power Banks? Na because 'E no dey carry last'.",
-      "type":"short"
-      "genre": "tech"
+   "joke":"Why do Nigerian devs love Power Banks? Na because 'E no dey carry last'.",
+   "type":"short"
+   "genre": "tech"
 }
 ```
 
 ## 6. View Layer
 - Templating Engine: EJS (Embedded JavaScript) for server-side rendering.
-- Main view: views/jokesUI.ejs – receives joke data from the server on initial load and renders it directly.
+- Main view: views/jokesViews.ejs – receives joke data from the server on initial load and renders it directly.
 - Client-side updates: Vanilla JavaScript in public/js/main.js.
 - Key elements: joke display area (conditionally renders short or long joke format), "Generate Joke" button, or the drop down button selection (Any joke, Short joke and Long joke).
 - Responsive design with CSS Flexbox and media queries.(./public/css/style.css)
@@ -94,7 +94,7 @@ This is a collaborative Group 3 mini-project. Below are the team members and the
 - Leniency Yowika (@Lyowika7) – UI design and frontend development (layout, styling, and population of the interface).
 - Ogbebor Aisosa Matthew – Setting up the Node.js + Express server; structuring the project using MVC architecture; integrating EJS templating; updating frontend JavaScript logic to use localStorage for persisting UI color/theme changes; splitting tasks among team members; reviewing, approving, and merging pull requests; resolving merge conflicts.
 - Ebubechukwu Jeff Osaji(Her_Light) responsible for correcting errors in the README and API Documentation.
-- Blessing Iyobosa Isibor (iyobosa-bi) Transformed the jokes.js into jokes.json and read the file into the jokesModel.js Implemented the api/random jokes route and connected it to the controller. Returned a render response to the jokesView.ejs from the controller. Git Collaboration (Push and pull requests)
+- Blessing Iyobosa Isibor (iyobosa-bi) Transformed the jokes.js into jokes.json and read the file into the jokesModel.js Implemented the api/random jokes route and connected it to the controller. Returned a render response to the jokesViews.ejs from the controller. Git Collaboration (Push and pull requests)
 
 ## 9. validation and Error Handling
 - Query parameters validated using schema in validations/validationSchema.js.
@@ -127,9 +127,6 @@ Create a .env file to set a custom port:
 Running the ApplicationDevelopment (with nodemon):
 - npm run dev
 
-Production:
-- npm start
-
 The server runs on port 3000 by default. If port 3000 is unavailable, it will fall back to 5000 (or as configured in .env).
 Open http://localhost:3000 (or :5000) to view the web UI.
 API endpoint: http://localhost:3000/api/randomjoke (or :5000).
@@ -151,12 +148,13 @@ API endpoint: http://localhost:3000/api/randomjoke (or :5000).
 - API examples in section 5
 
 ## 15. Contributors
-Aisdev979 (Ogbebor Aisosa Matthew): Project lead and repository maintainer
-Ayomide Winner Ojo-sola (@sola_ayomide)
-Sarah Motunrayo Osiyemi (@Sarahtuns16)
-Edgal James Iruoghene
-Leniency Yowika (@Lyowika7)
-Ebubechukwu Jeff Osaji(@Her-Light)
-Iyobosa Isibor (@iyobosa-bi)
+- Aisdev979 (Ogbebor Aisosa Matthew): Project lead and repository maintainer
+- Ayomide Winner Ojo-sola (@sola_ayomide)
+- Sarah Motunrayo Osiyemi (@Sarahtuns16)
+- Edgal James Iruoghene
+- Leniency Yowika (@Lyowika7)
+- Ebubechukwu Jeff Osaji(@Her-Light)
+- Iyobosa Isibor (@iyobosa-bi)
+- Elizabeth Edward
 
 Thank you to the entire Group 3 team for the collaboration!
