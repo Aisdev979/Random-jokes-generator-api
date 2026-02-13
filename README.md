@@ -22,8 +22,8 @@ A lightweight, beginner-friendly Node.js + Express API that serves random jokes 
 
 ## 4. Application Flow
 - Server starts on port 3000 (or 5000 if 3000 is unavailable, or as defined in `.env`).
-- User visits the root URL (`localhost:3000/api/randomjoke or ...:5000/ api/ randomjokes`) → Express renders the EJS view (`jokesVies.ejs`) with an initial random joke fetched server-side.
-- The page loads with the joke already displayed (no initial client-side request needed).
+- User visits the root URL (`localhost:3000/api/randomjoke or ...:5000/ api/ randomjokes`) → Express renders the EJS view (`jokesView.ejs`) with an initial random joke fetched server-side.
+- The page loads with the joke already displayed no initial client-side request needed.
 - User can optionally select a filter (short/long) via UI controls.
 - User clicks "Generate Joke" → frontend (`main.js`) sends a GET request to `/api/randomjoke` (with optional `?type=short` or `?type=long`).
 - Backend filters the jokes array accordingly, selects a random joke, and returns JSON.
@@ -34,9 +34,8 @@ A lightweight, beginner-friendly Node.js + Express API that serves random jokes 
 ## 5. API Overview
 The application exposes a dedicated RESTful JSON API endpoint.
 - Method: GET
-- Endpoint: `/`, `/api/randomjoke`
+- Endpoint:`/api/randomjoke`
 - Description:
- - `/`: Renders the mainweb UI with initial joke
  - `/api/randomjoke`: Returns a random joke as JSON            |
 
 Base URL examples (server runs on port 3000 by default; falls back to 5000 if unavailable):
@@ -55,6 +54,15 @@ Example JSON responses:
    "id":1,
       "joke":"Why do Nigerian devs love Power Banks? Na because 'E no dey carry last'.",
       "type":"short"
+      "genre": "tech"
+}
+
+Project Architecture responses:
+{
+"id":1,
+"joke": "Project Architecture: Random-jokes-generator-api/ controllers/ jokesController.js models/ jokesModels.js routes/ jokesRoute.js validations/ validationSchema.js views/ jokesli.ejs public/ css/style.css js/main.js app.js server.js",
+"type":"short"
+"genre":"tech"
 }
 
 ## 6. Project Architecture
@@ -68,7 +76,7 @@ Random-jokes-generator-api/
 ├── validations/           # Validation layer
 │   └── validationSchema.js # Schema/rules for query parameter validation
 ├── views/                 # Presentation layer (server-side)
-│   └── jokesUi.ejs        # EJS template for rendering the UI
+│   └── jokesView.ejs        # EJS template for rendering the UI
 ├── public/                # Static assets (client-side)
 │   ├── css/style.css
 │   └── js/main.js
